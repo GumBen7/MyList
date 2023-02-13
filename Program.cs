@@ -1,9 +1,6 @@
-﻿namespace Lists
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+﻿namespace Lists {
+    class Program {
+        static void Main(string[] args) {
             SimpleList s = new SimpleList();
         }
     }
