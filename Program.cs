@@ -1,7 +1,13 @@
 ﻿namespace Lists {
     class Program {
         static void Main(string[] args) {
-            SimpleList s = new SimpleList();
+            int data = int.Parse(Console.ReadLine());
+            SimpleList<int> list = new SimpleList<int>(data);
+            while (data != 0) {
+                data = int.Parse(Console.ReadLine());
+                if (data == 0) break;
+                list.Push(data);
+            }
         }
     }
 }
