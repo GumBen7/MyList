@@ -8,6 +8,9 @@
                 if (data == 0) break;
                 list.Push(data);
             }
+            while (!list.IsEmpty()) {
+                Console.WriteLine(list.Pop());
+            }
         }
     }
 }
