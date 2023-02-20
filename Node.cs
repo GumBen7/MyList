@@ -18,8 +18,9 @@ public class Node<T> {
         get {
             return this._next;
         }
-        set {
-            this._next = value;
-        }
+    }
+
+    public void SetNext(Node<T> next) {
+        this._next = next;
     }
 }
