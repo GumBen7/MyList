@@ -13,7 +13,11 @@ public class SimpleList<T> {
 
     public T Pop() {
         if (!IsEmpty()) {
-            
+            Node<T> popped = this._head.Next;
+            this._head.SetNext(popped.Next);
+            T poppedData = popped.Data;
+            popped = null;
+            return poppedData;
         }
         return default(T);
     }
