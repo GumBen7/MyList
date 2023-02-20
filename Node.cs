@@ -1,15 +1,17 @@
 public class Node<T> {
-    public Node(T data) {
-        this.Data = data;
+    public Node() {
+        this._data = default(T);
+        this._next = null;
+    }
+    public Node(T data, Node<T> next) {
+        this._data = data;
+        this._next = next;
     }
     private T _data;
     private Node<T> _next;
     public T Data {
         get {
             return this._data;
-        }
-        set {
-            this._data = value;
         }
     }
     public Node<T> Next {

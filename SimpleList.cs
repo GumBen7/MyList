@@ -1,28 +1,28 @@
 public class SimpleList<T> {
-    public SimpleList(T data) {
-        this._head = new Node<T>(data);
-        this._last = new Node<T>();
+    public SimpleList() {
+        this._head = new Node<T>();
+        this._penult = this._head;
     }
     private Node<T> _head;
-    private Node<T> _last;
+    private Node<T> _penult;
 
     public void Push(T data) {
-        this._last.Next = new Node<T>(data);
-        this._last = this._last.Next;
+        this._penult.Next = new Node<T>(data);
+        this._penult = this._penult.Next;
     }
 
     public T Pop() {
-        if (!IsEmpty) {
+        if (!IsEmpty()) {
             Node<T> popped = this._head;
             T data = popped.Data;
             this._head = this._head.Next;
             popped = null;
             return data;
         }
-        return null;
+        return default(T);
     }
     
     public bool IsEmpty() {
-        return _head == _last;
+        return _head == _penult;
     }
 }
