@@ -1,7 +1,7 @@
 ﻿namespace Lists {
     class Program {
         static void Main(string[] args) {
-            int data = int.Parse(Console.ReadLine());
+            int data;
             SimpleList<int> list = new SimpleList<int>();
             do {
                 data = int.Parse(Console.ReadLine());
