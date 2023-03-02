@@ -1,25 +1,23 @@
+/// <summary>
+/// Универсальный класс <c>Node</c> моделирует узел листа.
+/// </summary>
+/// <typeparam name="T">Тип данных узла</typeparam>
 public class Node<T> {
-    public Node() {
-        this._data = default(T);
-        this._next = null;
-    }
+    /// <summary>
+    /// Этот конструктор 
+    /// </summary>
     public Node(T data, Node<T> next) {
-        this._data = data;
-        this._next = next;
+        this.Data = data;
+        this.Next = next;
     }
-    private T _data;
-    private Node<T> _next;
-    public T Data {
-        get {
-            return this._data;
-        }
-    }
-    public Node<T> Next {
-        get {
-            return this._next;
-        }
-        set {
-            this._next = value;
-        }
-    }
+    
+    /// <value>
+    /// Свойство 
+    /// </value>
+    public T Data {get; init;}
+
+    /// <value>
+    /// Свойство 
+    /// </value>
+    public Node<T> Next {get; private set;}
 }
