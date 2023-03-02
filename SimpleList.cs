@@ -4,15 +4,12 @@
 /// <typeparam name="T">Тип элементов листа.</typeparam>
 public class SimpleList<T> {
     /// <summary>
-    /// Член <c>_head</c> типа <c>Node</c> хранит ссылку на головной
-    /// узел листа; данные узла имеют тип: <typeparamref name="T"/>.
+    /// Член <c>_head</c> хранит ссылку на головной узел листа
     /// </summary>
     private Node<T> _head;
     
     /// <summary>
-    /// Член <c>_penult</c> типа <c>Node</c> хранит ссылку на
-    /// предпоследний узел листа; данные узла имеют тип:
-    /// <typeparamref name="T"/>.
+    /// Член <c>_penult</c> хранит ссылку на предпоследний узел листа.
     /// </summary>
     private Node<T> _penult;
     
@@ -20,9 +17,6 @@ public class SimpleList<T> {
     /// Этот конструктор инициализирует новый пустой экземпляр класса
     /// <c>SimpleList&lt;<typeparamref name="T"/>&gt;</c>.
     /// </summary>
-    /// <remarks>
-    /// Создаёт два экземпляра узлов универсального типа <c>Node</c> 
-    /// </remarks>
     public SimpleList() {
         this._penult = 
             new Node<T>(default(T), new Node<T>(default(T), null));
@@ -30,10 +24,11 @@ public class SimpleList<T> {
     }
 
     /// <summary>
-    /// Этот метод доба
+    /// Этот метод добавляет объект в конец 
+    /// <c>SimpleList&lt;<typeparamref name="T"/>&gt;</c>.
     /// </summary>
     public void Push(T data) {
-        this._penult.SetNext(new Node<T>(data, this._penult.Next));
+        this._penult.
         this._penult = this._penult.Next;
     }
 
