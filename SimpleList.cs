@@ -3,24 +3,28 @@
 /// </summary>
 /// <typeparam name="T">Тип элементов листа.</typeparam>
 public class SimpleList<T> {
-    /// <summary>
-    /// Член <c>_head</c> хранит ссылку на головной узел листа
-    /// </summary>
-    private Node<T> _head;
-    
-    /// <summary>
-    /// Член <c>_penult</c> хранит ссылку на предпоследний узел листа.
-    /// </summary>
-    private Node<T> _penult;
-    
+    /// <value>
+    /// Свойство <c>Head</c> представляет головной узел тип
+    /// <typeparamref name="T">.
+    /// </value>
+    private Node<T> Head { get; set; }
+    /// <value>
+    /// Свойство <c>Penult</c> представляет предпоследний узел типа.
+    /// <typeparamref name="T">.
+    /// </value>
+    private Node<T> Penult { get; set; }
+
     /// <summary>
     /// Этот конструктор инициализирует новый пустой экземпляр класса
     /// <c>SimpleList&lt;<typeparamref name="T"/>&gt;</c>.
     /// </summary>
     public SimpleList() {
-        this._penult = 
+        // Лист создаётся с двумя обязательными узлами: последним и 
+        // предпоследни. В пустом (новом) листе головной узел
+        // указывает на предпоследний.
+        this.Penult = 
             new Node<T>(default(T), new Node<T>(default(T), null));
-        this._head = this._penult;
+        this.Head = this.Penult;
     }
 
     /// <summary>
@@ -28,17 +32,23 @@ public class SimpleList<T> {
     /// <c>SimpleList&lt;<typeparamref name="T"/>&gt;</c>.
     /// </summary>
     public void Push(T data) {
-        this._penult.
-        this._penult = this._penult.Next;
+        this.Penult.ChangeNext(new Node<T>(data, this.Penult.Next));
+        this.Penult = this.Penult.Next;
     }
 
+    /// <summary>
+    // Этот метод изымает первый элемент
+    /// <c>SimpleList&lt;<typeparamref name="T"/>&gt;</c>.
+    /// </summary>
+    /// <returns>
+    /// Значение данных первого (удалённого) элемента.
+    /// </returns>
     public T Pop() {
         if (!IsEmpty()) {
-            Node<T> popped = this._head.Next;
-            this._head.SetNext(popped.Next);
-            T poppedData = popped.Data;
-            popped = null;
-            return poppedData;
+            var beingDeleted = this.Head;
+            this.Head = this.Head.Next;
+            beingDeleted = null;
+            return this.Head.Data;
         }
         return default(T);
     }
@@ -47,8 +57,8 @@ public class SimpleList<T> {
     /// Этот метод выполняет проверку на пустоту листа.
     /// </summary>
     /// <returns>
-    /// True, если головной узел <c>_head</c> и предпоследний узел 
-    /// <c>_penult</c> указывают на один и тот же объект; иначе, False
+    /// True, если головной узел <c>Head</c> и предпоследний узел 
+    /// <c>Penult</c> указывают на один и тот же объект; иначе, False.
     /// </returns>
-    public bool IsEmpty() => _head == _penult;
+    public bool IsEmpty() => this.Head == this.Penult;
 }
