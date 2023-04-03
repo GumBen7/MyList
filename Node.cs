@@ -4,7 +4,7 @@
 /// <typeparam name="T">Тип данных узла.</typeparam>
 public class Node<T> {
     /// <value>
-    /// Свойство <c>Data</c> представляет данные типа
+    /// Свойство <c>Data</c> представляет данные узла типа
     /// <typeparamref name="T"/>.
     /// </value>
     public T Data { get; init; }
@@ -16,8 +16,9 @@ public class Node<T> {
 
     /// <summary>
     /// Этот конструктор инициализирует новый экзмепляр класса
-    /// <c>Node&lt;<typeparamref name="T"/>&gt;</c> c 
-    /// (<paramref name="data"/>,<paramref name="next"/>).
+    /// <c>Node&lt;<typeparamref name="T"/>&gt;</c> c данными
+    /// <paramref name="data"/> и указателем на 
+    /// объект <paramref name="next"/> в роли следующего.
     /// </summary>
     public Node(T data, Node<T> next) {
         this.Data = data;
