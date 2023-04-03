@@ -10,12 +10,12 @@ public class Node<T> {
     public T Data { get; init; }
 
     /// <value>
-    /// Свойство <c>Next</c> представляет ссылку на следющий узел.
+    /// Свойство <c>Next</c> представляет ссылку на следующий узел.
     /// </value>    
     public Node<T> Next { get; private set; }  
 
     /// <summary>
-    /// Этот конструктор инициализирует новый экзмепляр класса
+    /// Этот конструктор инициализирует новый экземпляр класса
     /// <c>Node&lt;<typeparamref name="T"/>&gt;</c> c данными
     /// <paramref name="data"/> и указателем на 
     /// объект <paramref name="next"/> в роли следующего.
